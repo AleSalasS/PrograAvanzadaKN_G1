@@ -1,0 +1,31 @@
+# Visual Studio
+.vs/
+**/.vs/
+
+# Archivos compilados
+bin/
+obj/
+**/bin/
+**/obj/
+
+# Paquetes restaurables
+packages/
+**/packages/
+
+# Archivos personales de Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Caché y archivos temporales
+*.cache
+*.tmp
+*.log
+
+# Visual Studio Code
+.vscode/
+
+# Sistema operativo
+Thumbs.db
+.DS_Store

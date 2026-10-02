@@ -81,23 +81,29 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img src="~/assets/img/user2-160x160.jpg"
                                  class="user-image rounded-circle shadow"
-                                 alt="Carlos Rodríguez" />
-                            <span class="d-none d-md-inline">Carlos Rodríguez</span>
+                                 alt="Usuario" />
+
+                            <span class="d-none d-md-inline">
+                                @Session["UsuarioNombre"]
+                            </span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                             <li class="user-header text-bg-primary">
                                 <img src="~/assets/img/user2-160x160.jpg"
                                      class="rounded-circle shadow"
-                                     alt="Carlos Rodríguez" />
+                                     alt="Usuario" />
+
                                 <p>
-                                    Carlos Rodríguez - Gerente Administrativo de Bioquimia
-                                    <small>Gerente desde Nov. 2023</small>
+                                    @Session["UsuarioNombre"]
+                                    <small>@Session["UsuarioCorreo"]</small>
                                 </p>
                             </li>
                             <li class="user-footer">
                                 <a href="#" class="btn btn-outline-secondary">Perfil de usuario</a>
-                                <a href="@Url.Action("Login", "Auth")" class="btn btn-outline-danger float-end">Cerrar sesión</a>
-                            </li>
+                                <a href="@Url.Action("CerrarSesion", "Login")"
+                                   class="btn btn-outline-danger float-end">
+                                    Cerrar sesión
+                                </a>                            </li>
                         </ul>
                     </li>
                 </ul>

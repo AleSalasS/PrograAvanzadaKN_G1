@@ -1,0 +1,154 @@
+@model Tarea1.Models.LoginModel
+
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Iniciar sesión | Bioquimia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="~/assets/css/adminlte.css" />
+</head>
+
+<body class="login-page bg-body-secondary">
+
+    <main class="login-box">
+
+        <div class="login-logo">
+            <img src="~/assets/img/logoBioquimiaAlt.png"
+                 alt="Logo Bioquimia"
+                 style="max-width: 320px; height: auto;" />
+
+            <p class="mt-2 mb-0 text-secondary">
+                Sistema de prototipos
+            </p>
+        </div>
+
+        <div class="card card-outline card-primary">
+
+            <div class="card-body login-card-body">
+
+                <p class="login-box-msg">
+                    Inicie sesión para continuar
+                </p>
+
+                @if (TempData["Mensaje"] != null)
+                {
+                    <div class="alert alert-success py-2">
+                        @TempData["Mensaje"]
+                    </div>
+                }
+
+                @Html.ValidationSummary(
+                    true,
+                    "",
+                    new { @class = "text-danger mb-3" }
+                )
+
+                @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="mb-3">
+
+                        @Html.TextBoxFor(
+                            m => m.Correo,
+                            new
+                            {
+                                @class = "form-control",
+                                type = "email",
+                                placeholder = "Correo electrónico",
+                                autocomplete = "username"
+                            }
+                        )
+
+                        @Html.ValidationMessageFor(
+                            m => m.Correo,
+                            "",
+                            new { @class = "text-danger" }
+                        )
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        @Html.PasswordFor(
+                            m => m.Contrasena,
+                            new
+                            {
+                                @class = "form-control",
+                                placeholder = "Contraseña",
+                                autocomplete = "current-password"
+                            }
+                        )
+
+                        @Html.ValidationMessageFor(
+                            m => m.Contrasena,
+                            "",
+                            new { @class = "text-danger" }
+                        )
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-7">
+
+                            <div class="form-check">
+
+                                @Html.CheckBoxFor(
+                                    m => m.Recordarme,
+                                    new { @class = "form-check-input" }
+                                )
+
+                                <label class="form-check-label">
+                                    Recordarme
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-5">
+
+                            <div class="d-grid gap-2">
+
+                                <button type="submit"
+                                        class="btn btn-primary">
+                                    Ingresar
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                }
+
+                <hr />
+
+                <p class="mb-1">
+                    <a href="@Url.Action("RecuperarContrasena", "Login")">
+                        Olvidé mi contraseña
+                    </a>
+                </p>
+
+                <p class="mb-0">
+                    <a href="@Url.Action("Registro", "Login")"
+                       class="text-center">
+                        Registrar una cuenta nueva
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

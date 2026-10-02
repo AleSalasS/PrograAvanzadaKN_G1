@@ -122,9 +122,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\RecuperarContrasenaModel.cs" />
+    <Compile Include="Models\RegistroModel.cs" />
+    <Compile Include="Models\RestablecerContrasenaModel.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -173,7 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\adminlte-colors-v3.css.map" />
@@ -200,6 +205,10 @@
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Auth\RegistroUsuarios.cshtml" />
     <Content Include="Views\Auth\RecuperarAccceso.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Registro.cshtml" />
+    <Content Include="Views\Login\RecuperarContrasena.cshtml" />
+    <Content Include="Views\Login\RestablecerContrasena.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

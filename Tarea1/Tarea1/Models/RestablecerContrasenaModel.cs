@@ -1,12 +1,11 @@
-
 using System.ComponentModel.DataAnnotations;
 
-namespace SistemaPrototipos.Models
+namespace Tarea1.Models
 {
     public class RestablecerContrasenaModel
     {
         [Required]
-        public string Token { get; set; } = string.Empty;
+        public string Token { get; set; }
 
         [Required(ErrorMessage = "La nueva contraseña es obligatoria.")]
         [StringLength(
@@ -15,14 +14,14 @@ namespace SistemaPrototipos.Models
             ErrorMessage = "La contraseña debe tener entre 6 y 50 caracteres."
         )]
         [DataType(DataType.Password)]
-        public string NuevaContrasena { get; set; } = string.Empty;
+        public string NuevaContrasena { get; set; }
 
         [Required(ErrorMessage = "Debe confirmar la contraseña.")]
         [Compare(
-            nameof(NuevaContrasena),
+            "NuevaContrasena",
             ErrorMessage = "Las contraseñas no coinciden."
         )]
         [DataType(DataType.Password)]
-        public string ConfirmarContrasena { get; set; } = string.Empty;
+        public string ConfirmarContrasena { get; set; }
     }
 }
